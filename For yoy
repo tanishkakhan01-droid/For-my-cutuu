@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You, My Love 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #fde2ea, #fef6e4, #e8f6ef);
+  overflow: hidden;
+}
+
+/* PASSWORD SCREEN */
+#lockScreen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #fde2ea, #fef6e4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lockBox {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.lockBox input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.lockBox button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #d66a8e;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* MAIN CONTENT */
+#content {
+  display: none;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.card {
+  max-width: 750px;
+  background: rgba(255,255,255,0.95);
+  padding: 40px;
+  border-radius: 28px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  line-height: 1.8;
+  animation: fadeIn 1.5s ease;
+}
+
+h1 {
+  text-align: center;
+  color: #d66a8e;
+}
+
+p {
+  color: #444;
+  margin-bottom: 18px;
+}
+
+.heartLine {
+  text-align: center;
+  font-size: 1.6em;
+  margin: 25px 0;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  color: #888;
+}
+
+/* FLOATING EMOJIS */
+.floating {
+  position: fixed;
+  bottom: -10px;
+  font-size: 24px;
+  animation: floatUp 10s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD -->
+<div id="lockScreen">
+  <div class="lockBox">
+    <h2>💗 Only for you 💗</h2>
+    <p>Enter the password</p>
+    <input type="password" id="passwordInput" placeholder="hint: pumpkinpie 🎀">
+    <br>
+    <button onclick="unlock()">Open 💌</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div id="content">
+  <div class="card">
+    <h1>For You, My Love 💗</h1>
+
+    <p>
+      My love, knowing that you’re in the hospital rn breaks my heart in ways I can’t even explain 🥺
+      I feel so unlucky rn. I keep wishing I could just cross every distance, sit beside you,
+      hold your handd, and tell you over and over that everything will be okay 🤍
+    </p>
+
+    <p>
+      Even though I’m far, please feel me w you — in every mssg, every thought, every quiet moment.
+      I love you sm mere pumpkinpie 🎀💞
+    </p>
+
+    <p>
+      You're so strong, stronger than you realize, and I’m so proud of you for fighting through this
+      w such courage 🫂  
+      And aapne hi kaha tha na — we don’t have to be strong all the time.
+      It’s okay to rest 🌷
+    </p>
+
+    <p>
+      I’m right heree, waiting for you, loving you endlessly, sending you alll my warmth and strength
+      until you’re better 💕  
+      I’m counting every moment until I can see you smile again,
+      until I can beat your ass the way you deserve 😌  
+      (Aao toh aap bs 🥰)
+    </p>
+
+    <p>
+      I'm here okiee? I love youu bhot saraaa 🫂🫶🏻  
+      I love you more than words can explain 😕💗
+    </p>
+
+    <p>
+      Please remember you’re not alone for even a second.
+      I’m right here w you — in every step, every second,
+      every heartbeat, every breath 💓 okiee?
+    </p>
+
+    <p>
+      I wish I could take away your pain and give youu alll my strength,
+      but until then, let my words hugg you 🤍✨
+    </p>
+
+    <div class="heartLine">🌸💗🫂💗🌸</div>
+
+    <p>
+      Get well soonn my bravee lill boyy 😙  
+      I’m waiting for you 💞
+    </p>
+
+    <div class="footer">Made with endless love 💌</div>
+  </div>
+</div>
+
+<script>
+const correctPassword = "pumpkinpie";
+
+function unlock() {
+  const input = document.getElementById("passwordInput").value;
+  if (input === correctPassword) {
+    document.getElementById("lockScreen").style.display = "none";
+    document.getElementById("content").style.display = "flex";
+    startFloating();
+  } else {
+    alert("Wrong password 🥺");
+  }
+}
+
+function startFloating() {
+  const emojis = ["💗","🌸","💞","🫂","🌷"];
+  setInterval(() => {
+    const span = document.createElement("span");
+    span.className = "floating";
+    span.style.left = Math.random() * 100 + "vw";
+    span.style.fontSize = (20 + Math.random() * 15) + "px";
+    span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    document.body.appendChild(span);
+    setTimeout(() => span.remove(), 10000);
+  }, 600);
+}
+</script>
+
+</body>
+</html>
